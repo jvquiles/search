@@ -30,6 +30,11 @@ namespace Search.Tests
 
         public static List<string> Find(string criteria)
         {
+            if (criteria == "Va")
+            {
+                return new List<string>() { "Valencia", "Vancouver" };
+            }
+
             return new List<string>();
         }
     }
