@@ -1,5 +1,4 @@
 using FluentAssertions;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace Search.Tests
 {
@@ -24,7 +23,7 @@ namespace Search.Tests
 
         public static List<string> Find(string criteria)
         {
-            throw new NotImplementedException();
+            return new List<string>();
         }
     }
 }
