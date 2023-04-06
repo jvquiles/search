@@ -12,51 +12,43 @@ namespace Search.Tests
         [Test]
         public void FindEmptyCriteria()
         {
-            var foundCities = CitySearch.Find("");
+            var foundCities = new CitySearch().Find("");
             foundCities.Should().BeEmpty();
         }
 
         [Test]
         public void FindWithVaCriteria()
         {
-            var foundCities = CitySearch.Find("Va");
+            var foundCities = new CitySearch().Find("Va");
             foundCities.Should().BeEquivalentTo(new List<string>() { "Valencia", "Vancouver" });
         }
 
         [Test]
         public void FindWithLoCriteria()
         {
-            var foundCities = CitySearch.Find("Lo");
+            var foundCities = new CitySearch().Find("Lo");
             foundCities.Should().BeEquivalentTo(new List<string>() { "London" });
         }
 
         [Test]
         public void FindWithPaCriteria()
         {
-            var foundCities = CitySearch.Find("Pa");
+            var foundCities = new CitySearch().Find("Pa");
             foundCities.Should().BeEquivalentTo(new List<string>() { "Paris" });
         }
     }
 
     public class CitySearch
     {
-        private List<string> _cities = new List<string>(){ "Paris", "Budapest", "Skopje", "Rotterdam", "Valencia", "Vancouver", "Amsterdam", "Vienna", "Sydney", "New York City", "London", "Bangkok", "Hong Kong", "Dubai", "Rome", "Istanbul" };
+        private readonly List<string> _cities = new List<string>(){ "Paris", "Budapest", "Skopje", "Rotterdam", "Valencia", "Vancouver", "Amsterdam", "Vienna", "Sydney", "New York City", "London", "Bangkok", "Hong Kong", "Dubai", "Rome", "Istanbul" };
 
-        public static List<string> Find(string criteria)
+        public List<string> Find(string criteria)
         {
-            if (criteria == "Va")
+            if (criteria.Length >= 2)
             {
-                return new List<string>() { "Valencia", "Vancouver" };
-            }
-
-            if (criteria == "Lo")
-            {
-                return new List<string>() { "London" };
-            }
-
-            if (criteria == "Pa")
-            {
-                return new List<string>() { "Paris" };
+                return this._cities
+                    .Where(c => c.StartsWith(criteria))
+                    .ToList();
             }
 
             return new List<string>();
