@@ -42,6 +42,11 @@ namespace Search.Tests
                 return new List<string>() { "Valencia", "Vancouver" };
             }
 
+            if (criteria == "Lo")
+            {
+                return new List<string>() { "London" };
+            }
+
             return new List<string>();
         }
     }
