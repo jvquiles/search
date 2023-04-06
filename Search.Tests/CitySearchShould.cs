@@ -72,7 +72,7 @@ namespace Search.Tests
                     .ToList();
             }
 
-            return new List<string>();
+            return criteria == "*" ? _cities : new List<string>();
         }
     }
 }
