@@ -34,7 +34,7 @@ namespace Search.Tests
         public void FindWithPaCriteria()
         {
             var foundCities = CitySearch.Find("Pa");
-            foundCities.Should().BeEquivalentTo(new List<string>() { "Pa" });
+            foundCities.Should().BeEquivalentTo(new List<string>() { "Paris" });
         }
     }
 
@@ -52,6 +52,11 @@ namespace Search.Tests
             if (criteria == "Lo")
             {
                 return new List<string>() { "London" };
+            }
+
+            if (criteria == "Pa")
+            {
+                return new List<string>() { "Paris" };
             }
 
             return new List<string>();
