@@ -61,7 +61,7 @@ namespace Search.Tests
             if (criteria.Length >= 2)
             {
                 return this._cities
-                    .Where(c => c.StartsWith(criteria, StringComparison.InvariantCultureIgnoreCase))
+                    .Where(c => c.Contains(criteria, StringComparison.InvariantCultureIgnoreCase))
                     .ToList();
             }
 
