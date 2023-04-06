@@ -43,6 +43,13 @@ namespace Search.Tests
             var foundCities = new CitySearch().Find("PA");
             foundCities.Should().BeEquivalentTo(new List<string>() { "Paris" });
         }
+
+        [Test]
+        public void FindWithApeCriteria()
+        {
+            var foundCities = new CitySearch().Find("ape");
+            foundCities.Should().BeEquivalentTo(new List<string>() { "Budapest" });
+        }
     }
 
     public class CitySearch
