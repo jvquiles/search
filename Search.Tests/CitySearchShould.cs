@@ -29,6 +29,13 @@ namespace Search.Tests
             var foundCities = CitySearch.Find("Lo");
             foundCities.Should().BeEquivalentTo(new List<string>() { "London" });
         }
+
+        [Test]
+        public void FindWithPaCriteria()
+        {
+            var foundCities = CitySearch.Find("Pa");
+            foundCities.Should().BeEquivalentTo(new List<string>() { "Pa" });
+        }
     }
 
     public class CitySearch
