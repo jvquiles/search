@@ -50,6 +50,13 @@ namespace Search.Tests
             var foundCities = new CitySearch().Find("ape");
             foundCities.Should().BeEquivalentTo(new List<string>() { "Budapest" });
         }
+
+        [Test]
+        public void FindAllCriteria()
+        {
+            var foundCities = new CitySearch().Find("*");
+            foundCities.Should().BeEquivalentTo(new List<string>() { "Paris", "Budapest", "Skopje", "Rotterdam", "Valencia", "Vancouver", "Amsterdam", "Vienna", "Sydney", "New York City", "London", "Bangkok", "Hong Kong", "Dubai", "Rome", "Istanbul" });
+        }
     }
 
     public class CitySearch
